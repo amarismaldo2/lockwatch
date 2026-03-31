@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LockWatch - Login History</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a0025, #2d0040, #1a0025);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px 20px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(220, 100, 255, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            width: 600px;
+            box-shadow: 0 8px 40px rgba(180, 0, 255, 0.2);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 28px;
+        }
+
+        .header h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            background: linear-gradient(90deg, #e040fb, #f48fb1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header a {
+            color: #e040fb;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .header a:hover { text-decoration: underline; }
+
+        .log-item {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(220, 100, 255, 0.15);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .log-time {
+            color: white;
+            font-size: 0.88rem;
+            font-weight: 600;
+        }
+
+        .log-location {
+            color: #bb86d4;
+            font-size: 0.8rem;
+            margin-top: 4px;
+        }
+
+        .log-icon {
+            font-size: 1.4rem;
+        }
+
+        .empty {
+            color: #9b6baa;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+
+        .back {
+            display: inline-block;
+            margin-top: 24px;
+            padding: 10px 28px;
+            background: linear-gradient(90deg, #e040fb, #f48fb1);
+            color: white;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.88rem;
+            transition: opacity 0.2s;
+        }
+
+        .back:hover { opacity: 0.88; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="header">
+            <h2>🔐 Login History</h2>
+            <a href="/dashboard">← Back to Dashboard</a>
+        </div>
+
+        {% if logs %}
+            {% for log in logs %}
+            <div class="log-item">
+                <div>
+                    <div class="log-time">{{ log[0] }}</div>
+                    <div class="log-location">📍 {{ log[1] }}, {{ log[2] }}, {{ log[3] }}</div>
+                </div>
+                <div class="log-icon">🖥️</div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p class="empty">No login history yet.</p>
+        {% endif %}
+
+        <a class="back" href="/dashboard">Back to Dashboard</a>
+    </div>
+</body>
+</html>

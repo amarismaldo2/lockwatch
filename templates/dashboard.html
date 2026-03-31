@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LockWatch - Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a0025, #2d0040, #1a0025);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(220, 100, 255, 0.3);
+            border-radius: 20px;
+            padding: 48px 40px;
+            width: 380px;
+            box-shadow: 0 8px 40px rgba(180, 0, 255, 0.2);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo span { font-size: 2rem; }
+
+        .logo h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            background: linear-gradient(90deg, #e040fb, #f48fb1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-top: 6px;
+        }
+
+        .welcome {
+            color: #e0b0ff;
+            font-size: 0.95rem;
+            font-weight: 300;
+        }
+
+        .welcome strong {
+            color: white;
+            font-weight: 600;
+        }
+
+        .status {
+            width: 100%;
+            background: rgba(224, 64, 251, 0.1);
+            border: 1px solid rgba(220, 100, 255, 0.25);
+            border-radius: 12px;
+            padding: 16px;
+            color: #bb86d4;
+            font-size: 0.85rem;
+        }
+
+        .status span {
+            color: #00e676;
+            font-weight: 600;
+        }
+
+        .status.warning {
+            background: rgba(255, 100, 100, 0.1);
+            border: 1px solid rgba(255, 100, 100, 0.3);
+            color: #ffaaaa;
+        }
+
+        .warn {
+            color: #ff6b6b;
+            font-weight: 600;
+        }
+
+        .btn-history {
+            width: 100%;
+            padding: 11px;
+            background: rgba(224, 64, 251, 0.15);
+            color: #e040fb;
+            border: 1px solid rgba(220, 100, 255, 0.4);
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.88rem;
+            transition: opacity 0.2s;
+        }
+
+        .btn-history:hover { opacity: 0.88; }
+
+        .btn-logout {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(90deg, #e040fb, #f48fb1);
+            color: white;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: opacity 0.2s;
+        }
+
+        .btn-logout:hover { opacity: 0.88; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="logo">
+            <span>🔐</span>
+            <h2>LockWatch</h2>
+        </div>
+
+        <p class="welcome">Welcome back, <strong>{{ username }}</strong> 👋</p>
+
+        {% if anomaly %}
+        <div class="status warning">
+            ⚠️ Status: <span class="warn">Suspicious login detected</span> — unusual login time flagged
+        </div>
+        {% else %}
+        <div class="status">
+            Status: <span>● Secure</span> — no suspicious activity detected
+        </div>
+        {% endif %}
+
+        <a class="btn-history" href="/history">View Login History</a>
+        <a class="btn-logout" href="/logout">Sign Out</a>
+    </div>
+</body>
+</html>
