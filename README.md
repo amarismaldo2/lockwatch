@@ -1,6 +1,8 @@
 //🔐 LockWatch
 A Python + Flask app that monitors logins for suspicious activity and sends real-time email alerts.
 
+<img width="789" height="903" alt="Screenshot 2026-03-30 220934" src="https://github.com/user-attachments/assets/e587e1aa-4e5b-44f5-81f3-0e4791600223" />
+
 //Introduction
 LockWatch is a security monitoring system that learns your normal login behavior and flags anything unusual.
 
