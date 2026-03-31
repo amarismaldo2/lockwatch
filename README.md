@@ -57,7 +57,6 @@ Then go to `http://127.0.0.1:5000`
 - 📜 Login history page with timestamps and locations
 - 📧 Instant Gmail alerts on suspicious logins
 
-
 ```
 
 Then run:
@@ -68,4 +67,5 @@ git push
 
 
 Have funnn!! (yay) 😸🤍
+
 MIT License © 2026 Amaris
